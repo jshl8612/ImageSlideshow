@@ -89,7 +89,12 @@ open class FullScreenSlideshowViewController: UIViewController {
         downloadButton.setTitle("다운로드", for: .normal)
         downloadButton.setTitleColor(.white, for: .normal)
         downloadButton.setTitleColor(UIColor.lightGray, for: .highlighted)
-        downloadButton.semanticContentAttribute = .forceRightToLeft
+        
+        if #available(iOS 9.0, *) {
+            downloadButton.semanticContentAttribute = .forceRightToLeft
+        } else {
+            // TODO::
+        }
         downloadButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0)
 
         naviBar.addSubview(downloadButton)
